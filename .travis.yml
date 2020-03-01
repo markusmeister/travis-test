@@ -9,7 +9,7 @@ addons:
     packages:
       - python3-numpy
       - python3-matplotlib
-      - python3-tk
+#      - python3-tk
       
 #before_install:
 #  - ls -l /usr/bin/python*

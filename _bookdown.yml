@@ -6,9 +6,7 @@ delete_merged_file: true
 
 rmd_files:
 - index.Rmd # includes the introduction
-
-- 01-Intro.Rmd
-# - 041-Figures.Rmd
-- 041-Equations.Rmd
+# - 041-figures.Rmd
+- 042-equations.Rmd
 - 045-python.Rmd
 

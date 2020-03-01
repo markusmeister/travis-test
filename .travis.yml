@@ -5,7 +5,7 @@ dist: trusty
 cache: packages
 
 before_install:
-  - pip install numpy
+  - pip3 install numpy
 
 env:
  global:

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Minimal Book Example</title>
+  <title>Chapter 6 Python | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 6 Python | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 6 Python | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="intro.html"/>
+<link rel="prev" href="applications.html"/>
+<link rel="next" href="final-words.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -170,29 +170,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Minimal Book Example</h1>
-<p class="author"><em>Yihui Xie</em></p>
-<p class="date"><em>2020-03-01</em></p>
+<div id="python" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Python</h1>
+<div id="a-normal-r-code-chunk" class="section level2">
+<h2><span class="header-section-number">6.1</span> A normal R code chunk</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(reticulate)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">x =<span class="st"> </span><span class="dv">42</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">print</span>(x)</a></code></pre></div>
+<pre><code>## [1] 42</code></pre>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># or the development version</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></a></code></pre></div>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+<div id="modify-an-r-variable" class="section level2">
+<h2><span class="header-section-number">6.2</span> Modify an R variable</h2>
+<p>In the following chunk, the value of <code>x</code> on the right hand side
+is 42, which was defined in the previous chunk.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">print</span>(x)</a></code></pre></div>
+<pre><code>## [1] 54</code></pre>
+</div>
+<div id="a-python-chunk" class="section level2">
+<h2><span class="header-section-number">6.3</span> A Python chunk</h2>
+<p>This works fine and as expected.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&#39;Python version = &#39;</span>, sys.version)</a></code></pre></div>
+<pre><code>## Python version =  3.5.2 (default, Nov 12 2018, 13:43:14) 
+## [GCC 5.4.0 20160609]</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">x <span class="op">=</span> <span class="dv">42</span> <span class="op">*</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="bu">print</span>(x) </a></code></pre></div>
+<pre><code>## 84</code></pre>
+<p>The value of <code>x</code> in the Python session is 84.
+It is not the same <code>x</code> as the one in R.</p>
+</div>
+<div id="modify-a-python-variable" class="section level2">
+<h2><span class="header-section-number">6.4</span> Modify a Python variable</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">x <span class="op">=</span> x <span class="op">+</span> <span class="dv">18</span> </a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="bu">print</span>(x)</a></code></pre></div>
+<pre><code>## 102</code></pre>
+<p>Retrieve the value of <code>x</code> from the Python session again:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">py<span class="op">$</span>x</a></code></pre></div>
+<pre><code>## [1] 102</code></pre>
+<p>Assign to a variable in the Python session from R:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">py<span class="op">$</span>y =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a></code></pre></div>
+<p>See the value of <code>y</code> in the Python session:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="bu">print</span>(y)</a></code></pre></div>
+<pre><code>## [1, 2, 3, 4, 5]</code></pre>
+</div>
+<div id="python-graphics" class="section level2">
+<h2><span class="header-section-number">6.5</span> Python graphics</h2>
+<p>You can draw plots using the <strong>matplotlib</strong> package in Python.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># import matplotlib</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co"># matplotlib.use(&#39;agg&#39;)</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># import matplotlib.pyplot as plt</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># plt.plot([0, 2, 1, 4])</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co"># plt.show()</span></a></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="applications.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -223,7 +261,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/045-python.Rmd",
 "text": "Edit"
 },
 "history": {

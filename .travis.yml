@@ -7,9 +7,8 @@ cache: packages
 addons:
   apt:
     packages:
-      - python3.6
-      - python-numpy
-      - python-matplotlib
+      - python3-numpy
+      - python3-matplotlib
       
 #before_install:
 #  - ls -l /usr/bin/python*

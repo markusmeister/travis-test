@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Python | A Minimal Book Example</title>
+  <title>Chapter 2 {r eval=FALSE} # install.packages('tinytex') # tinytex::install_tinytex() # # to uninstall TinyTeX, run tinytex::uninstall_tinytex() # | A Minimal Book Example</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Python | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 2 {r eval=FALSE} # install.packages('tinytex') # tinytex::install_tinytex() # # to uninstall TinyTeX, run tinytex::uninstall_tinytex() # | A Minimal Book Example" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Python | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 2 {r eval=FALSE} # install.packages('tinytex') # tinytex::install_tinytex() # # to uninstall TinyTeX, run tinytex::uninstall_tinytex() # | A Minimal Book Example" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="equations.html"/>
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="equations.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -169,68 +169,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="python" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Python</h1>
-<div id="a-normal-r-code-chunk" class="section level2">
-<h2><span class="header-section-number">4.1</span> A normal R code chunk</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(reticulate)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">matplotlib &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;matplotlib&quot;</span>)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">matplotlib<span class="op">$</span><span class="kw">use</span>(<span class="st">&quot;Agg&quot;</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">x =<span class="st"> </span><span class="dv">42</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">print</span>(x)</a></code></pre></div>
-<pre><code>## [1] 42</code></pre>
-</div>
-<div id="modify-an-r-variable" class="section level2">
-<h2><span class="header-section-number">4.2</span> Modify an R variable</h2>
-<p>In the following chunk, the value of <code>x</code> on the right hand side
-is 42, which was defined in the previous chunk.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">x =<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">12</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">print</span>(x)</a></code></pre></div>
-<pre><code>## [1] 54</code></pre>
-</div>
-<div id="a-python-chunk" class="section level2">
-<h2><span class="header-section-number">4.3</span> A Python chunk</h2>
-<p>This works fine and as expected.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&#39;Python version = &#39;</span>, sys.version)</a></code></pre></div>
-<pre><code>## Python version =  3.5.2 (default, Nov 12 2018, 13:43:14) 
-## [GCC 5.4.0 20160609]</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1">x <span class="op">=</span> <span class="dv">42</span> <span class="op">*</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="bu">print</span>(x) </a></code></pre></div>
-<pre><code>## 84</code></pre>
-<p>The value of <code>x</code> in the Python session is 84.
-It is not the same <code>x</code> as the one in R.</p>
-</div>
-<div id="modify-a-python-variable" class="section level2">
-<h2><span class="header-section-number">4.4</span> Modify a Python variable</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">x <span class="op">=</span> x <span class="op">+</span> <span class="dv">18</span> </a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="bu">print</span>(x)</a></code></pre></div>
-<pre><code>## 102</code></pre>
-<p>Retrieve the value of <code>x</code> from the Python session again:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">py<span class="op">$</span>x</a></code></pre></div>
-<pre><code>## [1] 102</code></pre>
-<p>Assign to a variable in the Python session from R:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">py<span class="op">$</span>y =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a></code></pre></div>
-<p>See the value of <code>y</code> in the Python session:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="bu">print</span>(y)</a></code></pre></div>
-<pre><code>## [1, 2, 3, 4, 5]</code></pre>
-</div>
-<div id="python-graphics" class="section level2">
-<h2><span class="header-section-number">4.5</span> Python graphics</h2>
-<p>You can draw plots using the <strong>matplotlib</strong> package in Python.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">plt.plot([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>])</a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">plt.show()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-11-1.png" /><!-- --></p>
+<div id="r-evalfalse-install.packagestinytex-tinytexinstall_tinytex-to-uninstall-tinytex-run-tinytexuninstall_tinytex" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> <code>{r eval=FALSE} # install.packages('tinytex') # tinytex::install_tinytex() # # to uninstall TinyTeX, run tinytex::uninstall_tinytex()  #</code></h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="equations.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="equations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -261,7 +210,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/045-python.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
 "text": "Edit"
 },
 "history": {

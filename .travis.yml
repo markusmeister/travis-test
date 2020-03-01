@@ -1,7 +1,7 @@
 language: r
 warnings_are_errors: false
-sudo: required
-dist: xenial
+# sudo: required
+# dist: xenial
 cache: packages
 
 addons:

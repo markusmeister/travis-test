@@ -9,10 +9,11 @@ addons:
     packages:
       - python3-numpy
       - python3-matplotlib
-      - python3-tk
+      - python3.5-tk
       
 before_install:
  - ls -l /usr/bin/python*
+ - python --version
 #  - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 #  - python3.4 get-pip.py
 #  - python3.4 -m pip install numpy

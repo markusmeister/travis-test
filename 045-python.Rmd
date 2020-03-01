@@ -28,6 +28,7 @@ print(x)
 This works fine and as expected. 
 
 ```{python}
+print('Python version = ', sys.version)
 x = 42 * 2
 print(x) 
 ```
@@ -64,10 +65,10 @@ print(y)
 
 You can draw plots using the **matplotlib** package in Python.
 
-```{python}
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-plt.plot([0, 2, 1, 4])
-plt.show()
+```{python, echo='TRUE'}
+# import matplotlib
+# matplotlib.use('agg')
+# import matplotlib.pyplot as plt
+# plt.plot([0, 2, 1, 4])
+# plt.show()
 ```

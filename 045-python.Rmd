@@ -9,6 +9,10 @@ date: 2018-02-22
 
 ```{r}
 library(reticulate)
+# use_python("/usr/local/bin/python3.5")
+```
+
+```{r}
 x = 42
 print(x)
 ```
@@ -66,9 +70,7 @@ print(y)
 You can draw plots using the **matplotlib** package in Python.
 
 ```{python, echo='TRUE'}
-# import matplotlib
-# matplotlib.use('agg')
-# import matplotlib.pyplot as plt
-# plt.plot([0, 2, 1, 4])
-# plt.show()
+import matplotlib.pyplot as plt
+plt.plot([0, 2, 1, 4])
+plt.show()
 ```

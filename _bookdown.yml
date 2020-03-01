@@ -3,3 +3,12 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+
+rmd_files:
+- index.Rmd # includes the introduction
+
+- 01-Intro.Rmd
+# - 041-Figures.Rmd
+- 041-Equations.Rmd
+- 045-python.Rmd
+

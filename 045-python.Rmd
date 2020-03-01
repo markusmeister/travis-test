@@ -32,7 +32,15 @@ print(x)
 This works fine and as expected. 
 
 ```{python}
+import os
+import matplotlib
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using non-interactive Agg backend')
+    matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 print('Python version = ', sys.version)
+
 x = 42 * 2
 print(x) 
 ```
@@ -70,12 +78,6 @@ print(y)
 You can draw plots using the **matplotlib** package in Python.
 
 ```{python, echo='TRUE'}
-import os
-import matplotlib
-if os.environ.get('DISPLAY','') == '':
-    print('no display found. Using non-interactive Agg backend')
-    matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 plt.plot([0, 2, 1, 4])
 plt.show()
 ```

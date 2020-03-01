@@ -1,13 +1,12 @@
 language: r
 warnings_are_errors: false
-sudo: required
-dist: trusty
+# sudo: required
+# dist: trusty
 cache: packages
 pandoc_version: 1.19.2.1
 
 before_install:
-  - pip install --upgrade pip3
-  - pip3 install numpy matplotlib
+  - pip install numpy matplotlib
 
 env:
  global:

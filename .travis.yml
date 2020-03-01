@@ -6,7 +6,7 @@ cache: packages
 pandoc_version: 1.19.2.1
 
 before_install:
-  - pip3 install --upgrade pip
+  - pip install --upgrade pip3
   - pip3 install numpy matplotlib
 
 env:

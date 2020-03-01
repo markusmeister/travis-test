@@ -249,6 +249,13 @@ Adding some text here\ldots{}
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(reticulate)}
+\NormalTok{matplotlib <-}\StringTok{ }\KeywordTok{import}\NormalTok{(}\StringTok{"matplotlib"}\NormalTok{)}
+\NormalTok{matplotlib}\OperatorTok{$}\KeywordTok{use}\NormalTok{(}\StringTok{"Agg"}\NormalTok{, }\DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{x =}\StringTok{ }\DecValTok{42}
 \KeywordTok{print}\NormalTok{(x)}
 \end{Highlighting}
@@ -358,13 +365,13 @@ You can draw plots using the \textbf{matplotlib} package in Python.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# import matplotlib}
-\CommentTok{# matplotlib.use('agg')}
-\CommentTok{# import matplotlib.pyplot as plt}
-\CommentTok{# plt.plot([0, 2, 1, 4])}
-\CommentTok{# plt.show()}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\NormalTok{plt.plot([}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{])}
+\NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
+
+\includegraphics{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/unnamed-chunk-11-1.pdf}
 
 \hypertarget{final-words}{%
 \chapter{Final Words}\label{final-words}}

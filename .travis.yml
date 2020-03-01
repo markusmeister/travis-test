@@ -3,10 +3,9 @@ warnings_are_errors: false
 sudo: required
 dist: trusty
 cache: packages
-pandoc_version: 1.19.2.1
 
 before_install:
-  - python3 -m pip install numpy matplotlib
+  - pip install numpy
 
 env:
  global:
@@ -14,6 +13,10 @@ env:
 
 r_packages:
    - reticulate
+
+notifications:
+  email:
+    on_failure: change
 
 before_script:
   - chmod +x ./_build.sh

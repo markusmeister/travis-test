@@ -8,8 +8,8 @@ set -e
 git config --global user.email "meister4@mac.com"
 git config --global user.name "Markus Meister"
 
-git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git book-output
-cd book-output
+git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git failure-output
+cd failure-output
 cp -r ../bookdown-demo.Rmd ./ # retrieve the knitted file
 git add --all *
 git commit -m"Update the book" || true

@@ -1,0 +1,300 @@
+1416--- 
+1417title: "A Book to Test Travis CI"
+1418author: "Markus Meister"
+1419date: "`r Sys.Date()`"
+1420site: bookdown::bookdown_site
+1421output: bookdown::gitbook
+1422documentclass: book
+1423bibliography: [book.bib, packages.bib]
+1424biblio-style: apalike
+1425link-citations: yes
+1426github-repo: rstudio/bookdown-demo
+1427description: "This is a test of running the bookdown package on Travis CI. The output format for this example is bookdown::gitbook."
+1428---
+1429
+1430# Prerequisites
+1431
+1432This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+1433
+1434The **bookdown** package can be installed from CRAN or Github:
+1435
+1436```{r eval=FALSE}
+1437install.packages("bookdown")
+1438install.packages("rprojroot")
+1439update.packages("knitr")
+1440update.packages("rmarkdown")
+1441```
+1442
+1443Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+1444
+1445To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+1446
+1447```{r include=FALSE}
+1448# automatically create a bib database for R packages
+1449knitr::write_bib(c(
+1450  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+1451), 'packages.bib')
+1452```
+1453
+1454```{r}
+1455projdir = rprojroot::find_rstudio_root_file() # project directory
+1456
+1457include_svg = function(path) { # used to convert svg to pdf
+1458  if (knitr::is_latex_output()) {
+1459    output = xfun::with_ext(path, 'pdf')
+1460    # you can compare the timestamp of pdf against svg to avoid conversion if necessary
+1461    system2('rsvg-convert', c('-f', 'pdf', '-a', '-o', shQuote(c(output, path))))
+1462  } else {
+1463    output = path
+1464  }
+1465  knitr::include_graphics(output)
+1466}
+1467```
+1468
+1469```{r}
+1470library(reticulate)
+1471matplotlib <- import("matplotlib")
+1472matplotlib$use("Agg", force = TRUE)
+1473```
+1474
+1475```{python}
+1476import numpy as np
+1477import os
+1478import sys
+1479import matplotlib
+1480matplotlib.rcParams['text.usetex'] = True # use Latex to draw all text
+1481matplotlib.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']
+1482import matplotlib.pyplot as plt
+1483curdir = os.getcwd()
+1484os.chdir(r.projdir)
+1485from mib.utils import plot, save_img # plotting routines
+1486os.chdir(curdir)
+1487```
+1488
+1489<!--chapter:end:index.Rmd-->
+1490
+1491# Equations
+1492
+1493## Inline equations
+1494...are enclosed by simple `$  $`, like this:
+1495
+1496```
+1497$\tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'\,$
+1498```
+1499
+1500which produces this output: $\tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'\,$.
+1501
+1502## Display equations
+1503...without numbers can be enclosed by double `$$  $$`, like this: 
+1504
+1505```
+1506$$\tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'\,.$$
+1507```
+1508
+1509which produces
+1510
+1511$$\tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'\,.$$
+1512
+1513## Equation labels
+1514To label an equation with `name` use the format `(\#eq:name)`. 
+1515To cite that equation use the format `\@ref(eq:name)`
+1516
+1517The equation label has to appear after the body of the equation code, like this:
+1518
+1519```latex
+1520\begin{equation} 
+1521  \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
+1522  (\#eq:binom)
+1523\end{equation} 
+1524```
+1525
+1526\begin{equation}
+1527  \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
+1528  (\#eq:binom)
+1529\end{equation}
+1530
+1531```latex
+1532\begin{equation}
+1533f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} (\#eq:binom2)
+1534\end{equation}
+1535```
+1536
+1537\begin{equation}
+1538f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} (\#eq:binom2)
+1539\end{equation}
+1540
+1541Then you can cite the equation, like this: \@ref(eq:binom).
+1542
+1543Changed this 5:11PM.
+1544
+1545## Equation numbering
+1546There is some weirdness about how equation numbering is handled in the PDF versus the HTML versions of the book. 
+1547
+1548In the PDF output equations are numbered by default. Every line of an equation will get numbered except if it
+1549
+15501. is inside `$$ $$`.
+15512. has `\notag` at the end of line, before the `\\`.
+15523. is in an `{equation*}` or `{align*}` environment where there are no labels
+15534. is in a `{split}` environment with a single label
+1554
+1555But in the HTML output an equation is unnumbered by default, except if it contains an explicit equation label. For more details see [here](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html). 
+1556
+1557So, to make sure we get the same numbering in PDF and HTML we should do this:
+1558
+1559**An unnumbered display equation** should be enclosed with `$$ $$` or in environments `{equation*}` or `{align*}`.
+1560
+1561**A numbered display equation** should include a single label.
+1562
+1563Here are some examples:
+1564
+1565This equation will get a number in PDF but not in HTML, **which is a mistake!**
+1566
+1567\begin{equation} 
+1568  \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
+1569\end{equation} 
+1570
+1571This gets no number in PDF or HTML:
+1572
+1573\begin{equation*} 
+1574  \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
+1575\end{equation*} 
+1576
+1577And this gets a number in both PDF and HTML:
+1578
+1579\begin{equation} 
+1580  \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
+1581  (\#eq:transfu)
+1582\end{equation} 
+1583
+1584## Multi-line equation with multiple labels
+1585Here is a long equation stretching over several lines, first with a single number
+1586
+1587\begin{equation} 
+1588\begin{split}
+1589\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y)\\
+1590 & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\\
+1591 & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\\
+1592 & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\\
+1593 & =(X'X)^{-1}\sigma^{2}
+1594\end{split}
+1595(\#eq:var-beta1)
+1596\end{equation} 
+1597
+1598...then with multiple numbers
+1599
+1600\begin{align}
+1601\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \notag \\
+1602 & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'(\#eq:var-a)\\ 
+1603 & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}(\#eq:var-b)\\ 
+1604 & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}(\#eq:var-c)\\ 
+1605 & =(X'X)^{-1}\sigma^{2} (\#eq:var-d)
+1606\end{align}
+1607
+1608I wrote some grep routines that produce automatic equation labels, for example in the study guide which contains several hundred equations. Every one of those has a label, even though we rarely cite those labels.
+1609
+1610
+1611
+1612<!--chapter:end:042-equations.Rmd-->
+1613
+1614---
+1615title: "Python code chunks in R Markdown"
+1616date: 2018-02-22
+1617---
+1618
+1619# Python
+1620
+1621## A normal R code chunk
+1622
+1623```{r}
+1624x = 42
+1625print(x)
+1626```
+1627
+1628## Modify an R variable
+1629
+1630In the following chunk, the value of `x` on the right hand side
+1631is `r x`, which was defined in the previous chunk.
+1632
+1633```{r}
+1634x = x + 12
+1635print(x)
+1636```
+1637
+1638## A Python chunk
+1639
+1640This works fine and as expected. 
+1641
+1642```{python}
+1643print('Python version = ', sys.version)
+1644
+1645x = 42 * 2
+1646print(x) 
+1647```
+1648
+1649The value of `x` in the Python session is `r py$x`.
+1650It is not the same `x` as the one in R.
+1651
+1652## Modify a Python variable
+1653
+1654```{python}
+1655x = x + 18 
+1656print(x)
+1657```
+1658
+1659Retrieve the value of `x` from the Python session again:
+1660
+1661```{r}
+1662py$x
+1663```
+1664
+1665Assign to a variable in the Python session from R:
+1666
+1667```{r}
+1668py$y = 1:5
+1669```
+1670
+1671See the value of `y` in the Python session:
+1672
+1673```{python}
+1674print(y)
+1675```
+1676
+1677## Python graphics
+1678
+1679You can draw plots using the **matplotlib** package in Python:
+1680
+1681```{python, echo='TRUE'}
+1682plt.plot([0, 2, 1, 4])
+1683plt.show()
+1684```
+1685
+1686or using the functions in the mibPy module:
+1687
+1688```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
+1689plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-'])
+1690```
+1691
+1692Can cite this as Fig \@ref(fig:testfig1).
+1693
+1694Can also draw a graph and save it to `img/` without showing it.
+1695
+1696```{python, echo='TRUE'}
+1697plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['r-'])
+1698save_img('testfig1.pdf')
+1699```
+1700
+1701...then retrieve it later as an image:
+1702
+1703```{r testfig2, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'}
+1704knitr::include_graphics(file.path(projdir, "img/testfig1.pdf"))
+1705```
+1706
+1707
+1708
+1709
+1710
+1711<!--chapter:end:045-python.Rmd-->
+1712
+1713
+1714
+1715

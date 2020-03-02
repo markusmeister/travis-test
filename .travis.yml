@@ -62,4 +62,4 @@ script:
   - ./_deploy.sh
 
 after_failure:
-  - cat bookdown-demo.Rmd
+  - ./_retrieve.sh

@@ -12,6 +12,7 @@ addons:
       - python3-matplotlib
 
 before_install:
+  - Rscript -e "update.packages(.libPaths()[1], ask = FALSE)"
 #  - tlmgr install index
 
 env:

@@ -4,6 +4,11 @@ language:
     chapter_name: "Chapter "
 delete_merged_file: true
 
+output:
+  html_document:
+    mathjax: local
+    self_contained: false
+
 rmd_files:
 - index.Rmd # includes the introduction
 # - 041-figures.Rmd

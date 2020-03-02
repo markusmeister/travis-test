@@ -85,11 +85,11 @@ or using the functions in the mibPy module:
 <!-- save_img('testfig1.pdf') -->
 <!-- ``` -->
 
-...then retrieve it later as an image:
+<!-- ...then retrieve it later as an image: -->
 
-```{r testfig2, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'}
-knitr::include_graphics(file.path(projdir, "img/testfig1.pdf"))
-```
+<!-- ```{r testfig2, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'} -->
+<!-- knitr::include_graphics(file.path(projdir, "img/testfig1.pdf")) -->
+<!-- ``` -->
 
 
 

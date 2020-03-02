@@ -63,9 +63,15 @@ print(y)
 
 ## Python graphics
 
-You can draw plots using the **matplotlib** package in Python.
+You can draw plots using the **matplotlib** package in Python:
 
 ```{python, echo='TRUE'}
 plt.plot([0, 2, 1, 4])
 plt.show()
+```
+
+or using the functions in the mibPy module:
+
+```{python, echo='TRUE'}
+plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-'])
 ```

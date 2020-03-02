@@ -10,14 +10,40 @@ addons:
     packages:
       - python3-numpy
       - python3-matplotlib
-      - ghostscript
-      - texlive-latex-recommended
-      - texlive-latex-extra
+      # - ghostscript
+      # - texlive-latex-recommended
+      # - texlive-latex-extra
+      # - dvipng
+      # - texlive-fonts-recommended
+      # - texlive-fonts-extra
+      # - tipa
+      # - texlive-math-extra
+      - cm-super
       - dvipng
+      - ffmpeg
+      - gdb
+      - gir1.2-gtk-3.0
+      - graphviz
+      - inkscape
+      - lcov
+      - libcairo2
+      - libcairo2-dev
+      - libffi-dev
+      - libgeos-dev
+      - libgirepository1.0-dev
+      - lmodern
+      - fonts-freefont-otf
+      - texlive-pictures
+      - pkg-config
+      - qtbase5-dev
       - texlive-fonts-recommended
-      - texlive-fonts-extra
-      - tipa
-      - texlive-math-extra
+      - texlive-latex-base
+      - texlive-latex-extra
+      - texlive-latex-recommended
+      - texlive-luatex
+      - texlive-xetex
+      - ttf-wqy-zenhei
+
 
 before_install:
   - Rscript -e "update.packages(.libPaths()[1], ask = FALSE)"

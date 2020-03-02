@@ -11,7 +11,7 @@ addons:
       - python3-matplotlib
 
 before_install:
-  - tlmgr install index
+#  - tlmgr install index
 
 env:
  global:

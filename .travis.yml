@@ -61,4 +61,5 @@ script:
   - ./_build.sh
   - ./_deploy.sh
 
-
+after_failure:
+  - cat bookdown-demo.Rmd

@@ -13,6 +13,7 @@ addons:
       - texlive-latex-recommended
       - texlive-latex-extra
       - dvipng
+      - texlive-fonts-recommended
 
 before_install:
   - Rscript -e "update.packages(.libPaths()[1], ask = FALSE)"

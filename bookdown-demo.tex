@@ -181,23 +181,35 @@ To cite that equation use the format \texttt{\textbackslash{}@ref(eq:name)}
 
 The equation label has to appear after the body of the equation code, like this:
 
-\begin{verbatim}
-\begin{equation} 
-  \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
-  \label{eq:binom}
-\end{equation} 
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}\SpecialStringTok{ }
+\SpecialStringTok{  }\SpecialCharTok{\textbackslash{}tilde}\SpecialStringTok{ h(}\SpecialCharTok{\textbackslash{}omega}\SpecialStringTok{) = }\SpecialCharTok{\textbackslash{}int}\SpecialStringTok{_\{-}\SpecialCharTok{\textbackslash{}infty}\SpecialStringTok{\}^\{}\SpecialCharTok{\textbackslash{}infty}\SpecialStringTok{\}}\SpecialCharTok{\textbackslash{},}\SpecialStringTok{e^\{i}\SpecialCharTok{\textbackslash{}omega}\SpecialStringTok{ t'\} h(t') }\SpecialCharTok{\textbackslash{},}\SpecialStringTok{ dt'}
+\SpecialStringTok{  (}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:binom)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
 
 \begin{equation}
   \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
   \label{eq:binom}
 \end{equation}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}
+\SpecialStringTok{f}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(k}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)=}\SpecialCharTok{\textbackslash{}binom}\SpecialStringTok{\{n\}\{k\}p^k}\SpecialCharTok{\textbackslash{}left}\SpecialStringTok{(1-p}\SpecialCharTok{\textbackslash{}right}\SpecialStringTok{)^\{n-k\} (}\SpecialCharTok{\textbackslash{}#}\SpecialStringTok{eq:binom)}
+\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{equation}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{equation}
-f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \label{eq:binom}
+f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \label{eq:binom2}
 \end{equation}
 
 Then you can cite the equation, like this: \eqref{eq:binom}.
+
+Changed this 4:49PM.
 
 \hypertarget{equation-numbering}{%
 \section{Equation numbering}\label{equation-numbering}}

@@ -31,10 +31,10 @@ The equation label has to appear after the body of the equation code, like this:
   (\#eq:binom)
 \end{equation} 
 ```
-\begin{equation} 
+\begin{equation}
   \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t'} h(t') \, dt'
   (\#eq:binom)
-\end{equation} 
+\end{equation}
 
 Then you can cite the equation, like this: \@ref(eq:binom).
 

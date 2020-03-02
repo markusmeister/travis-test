@@ -12,6 +12,7 @@ addons:
       - python3-matplotlib
       - texlive-latex-recommended
       - texlive-latex-extra
+      - dvipng
 
 before_install:
   - Rscript -e "update.packages(.libPaths()[1], ask = FALSE)"

@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583301234714.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3728910349",
+    "id" : "4B7A35E6",
+    "lastKnownWriteTime" : 1583105098,
+    "last_content_update" : 1583105098,
+    "path" : "~/Work/Projects/Books/Mathematics Book/MIB Various/Works in Travis 1/.travis.yml",
+    "project_path" : null,
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}

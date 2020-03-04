@@ -1,0 +1,58 @@
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+.packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+projdir = rprojroot::find_rstudio_root_file() # project directory
+include_svg = function(path) { # used to convert svg to pdf
+if (knitr::is_latex_output()) {
+output = xfun::with_ext(path, 'pdf')
+# you can compare the timestamp of pdf against svg to avoid conversion if necessary
+system2('rsvg-convert', c('-f', 'pdf', '-a', '-o', shQuote(c(output, path))))
+} else {
+output = path
+}
+knitr::include_graphics(output)
+}
+library(reticulate)
+matplotlib <- import("matplotlib")
+matplotlib$use("Agg", force = TRUE)
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+.packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+projdir = rprojroot::find_rstudio_root_file() # project directory
+include_svg = function(path) { # used to convert svg to pdf
+if (knitr::is_latex_output()) {
+output = xfun::with_ext(path, 'pdf')
+# you can compare the timestamp of pdf against svg to avoid conversion if necessary
+system2('rsvg-convert', c('-f', 'pdf', '-a', '-o', shQuote(c(output, path))))
+} else {
+output = path
+}
+knitr::include_graphics(output)
+}
+library(reticulate)
+matplotlib <- import("matplotlib")
+matplotlib$use("Agg", force = TRUE)
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+.packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+projdir = rprojroot::find_rstudio_root_file() # project directory
+include_svg = function(path) { # used to convert svg to pdf
+if (knitr::is_latex_output()) {
+output = xfun::with_ext(path, 'pdf')
+# you can compare the timestamp of pdf against svg to avoid conversion if necessary
+system2('rsvg-convert', c('-f', 'pdf', '-a', '-o', shQuote(c(output, path))))
+} else {
+output = path
+}
+knitr::include_graphics(output)
+}
+library(reticulate)
+matplotlib <- import("matplotlib")
+matplotlib$use("Agg", force = TRUE)
+source("index,Rmd", chdir = T)
+source("index.Rmd", chdir = T)
+getSrcDirectory(function(x) {x})
+rprojroot::find_rstudio_root_file()

@@ -10,7 +10,7 @@ date: 2018-02-22
 ```{r}
 library(reticulate)
 matplotlib <- import("matplotlib")
-matplotlib$use("Agg", force = TRUE)
+matplotlib$use("Agg", force = TRUE) # use a backend that doesn't expect a display
 ```
 
 ```{r}
@@ -76,3 +76,12 @@ import matplotlib.pyplot as plt
 plt.plot([0, 2, 1, 4])
 plt.show()
 ```
+
+and same with a caption:
+
+```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
+plt.plot([0, 2, 1, 4])
+plt.show()
+```
+
+Can cite this as Fig \@ref(fig:testfig1).

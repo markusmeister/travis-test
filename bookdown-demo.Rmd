@@ -256,9 +256,24 @@ plt.show()
 ```
 ````
 
-```{python testfig1, echo='FALSE', out.width='33%', fig.align='center', fig.cap = 'A figure from Python code'}
-plt.plot([0, 2, 1, 4])
-plt.show()
+<!-- ```{python testfig1, echo='FALSE', out.width='33%', fig.align='center', fig.cap = 'A figure from Python code'} -->
+<!-- plt.plot([0, 2, 1, 4]) -->
+<!-- plt.show() -->
+<!-- ``` -->
+
+The error log from Travis CI is
+```{text}
+label: testfig1 (with options) 
+1321List of 5
+1322 $ echo     : chr "FALSE"
+1323 $ out.width: chr "33%"
+1324 $ fig.align: chr "center"
+1325 $ fig.cap  : chr "A figure from Python code"
+1326 $ engine   : chr "python"
+1327
+1328Quitting from lines 260-262 (bookdown-demo.Rmd) 
+1329Error in if (options$fig.num > 1L && options$fig.show == "asis") options$fig.cur : 
+1330  missing value where TRUE/FALSE needed
 ```
 
 Using an R chunk to insert a figure with caption works fine:

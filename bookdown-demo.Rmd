@@ -18,7 +18,7 @@ This is a _sample_ book written in **Markdown**. You can use anything that Pando
 
 The **bookdown** package can be installed from CRAN or Github:
 
-```{r eval=FALSE}
+```{r include=FALSE}
 install.packages("bookdown")
 install.packages("rprojroot")
 update.packages("knitr")
@@ -53,6 +53,7 @@ include_svg = function(path) { # used to convert svg to pdf
 
 ```{r}
 library(reticulate)
+knitr::knit_engines$set(python = reticulate::eng_python)
 matplotlib <- import("matplotlib")
 matplotlib$use("Agg", force = TRUE)
 ```
@@ -276,12 +277,12 @@ plt.plot([0, 2, 1, 4])
 plt.show()
 ```
 
-<!-- ```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'} -->
-<!-- plt.plot([0, 2, 1, 4]) -->
-<!-- plt.show() -->
-<!-- ``` -->
+```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
+plt.plot([0, 2, 1, 4])
+plt.show()
+```
 
-<!-- Can cite this as Fig \@ref(fig:testfig1). -->
+Can cite this as Fig \@ref(fig:testfig1).
 
 <!-- ```{python testfig2, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from mibPy code'} -->
 <!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-']) -->

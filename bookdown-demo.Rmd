@@ -259,14 +259,6 @@ See the value of `y` in the Python session:
 print(y)
 ```
 
-## Figures from R chunks
-
-```{r testfig3, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'}
-knitr::include_graphics(file.path(projdir, "img/testfig1.pdf"))
-```
-
-Can cite this as Fig \@ref(fig:testfig3).
-
 ## Python graphics
 
 You can draw plots using the **matplotlib** package in Python:
@@ -275,6 +267,8 @@ You can draw plots using the **matplotlib** package in Python:
 plt.plot([0, 2, 1, 4])
 plt.show()
 ```
+
+and same with a caption:
 
 ```{python testfig2, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
 plt.plot([0, 2, 1, 4])
@@ -297,6 +291,8 @@ save_img('testfig1.pdf')
 ```
 
 ...then retrieve it later as an image:
+
+## Figures from R chunks
 
 ```{r testfig4, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'}
 knitr::include_graphics(file.path(projdir, "img/testfig1.pdf"))

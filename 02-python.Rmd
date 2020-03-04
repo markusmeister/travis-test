@@ -8,12 +8,6 @@ date: 2018-02-22
 ## A normal R code chunk
 
 ```{r}
-library(reticulate)
-matplotlib <- import("matplotlib")
-matplotlib$use("Agg", force = TRUE) # use a backend that doesn't expect a display
-```
-
-```{r}
 x = 42
 print(x)
 ```
@@ -77,11 +71,29 @@ plt.plot([0, 2, 1, 4])
 plt.show()
 ```
 
-and same with a caption:
+But doing the same with a figure caption fails to build on Travis CI (as of 3/4/2020):
 
-```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
+````markdown
+`r ''````{python testfig1, echo='FALSE', out.width='33%', fig.align='center', fig.cap = 'A figure from Python code'}
+plt.plot([0, 2, 1, 4])
+plt.show()
+```
+````
+
+```{python testfig1, echo='FALSE', out.width='33%', fig.align='center', fig.cap = 'A figure from Python code'}
 plt.plot([0, 2, 1, 4])
 plt.show()
 ```
 
-Can cite this as Fig \@ref(fig:testfig1).
+Using an R chunk to insert a figure with caption works fine:
+
+````markdown
+`r ''````{r testfig2, echo='FALSE', out.width='33%', fig.align='center', fig.cap='A figure from a PDF file.'}
+knitr::include_graphics('img/testfig1.pdf')
+```
+````
+
+```{r testfig2, echo='FALSE', out.width='33%', fig.align='center', fig.cap='A figure from a PDF file.'}
+knitr::include_graphics('img/testfig1.pdf')
+```
+

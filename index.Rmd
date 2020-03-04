@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "A Test of integrating bookdown with Travis CI"
+author: "Markus Meister"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,8 +8,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+github-repo: markusmeister/travis-test
+description: "This is a test of various bookdown functions implemented on Travis CI. The content is largely based on Yihui Xie's bookdown projects, see https://bookdown.org/yihui/bookdown/github.html and https://github.com/rstudio/bookdown-demo."
 ---
 
 # Prerequisites
@@ -28,13 +28,11 @@ Remember each Rmd file contains one and only one chapter, and a chapter is defin
 
 To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
 
-<!--
 ```{r eval=FALSE}
 install.packages('tinytex')
 tinytex::install_tinytex()
 # to uninstall TinyTeX, run tinytex::uninstall_tinytex() 
 ```
--->
 
 
 ```{r include=FALSE}
@@ -42,4 +40,11 @@ tinytex::install_tinytex()
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+```
+
+```{r}
+# connect to python
+library(reticulate)
+matplotlib <- import("matplotlib")
+matplotlib$use("Agg", force = TRUE) # backend that doesn't expect a display
 ```

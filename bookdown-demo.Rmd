@@ -271,25 +271,30 @@ Can cite this as Fig \@ref(fig:testfig3).
 
 You can draw plots using the **matplotlib** package in Python:
 
-```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
+```{python testfig1, echo='TRUE', out.width='33%', fig.align='center'}
 plt.plot([0, 2, 1, 4])
 plt.show()
 ```
 
-Can cite this as Fig \@ref(fig:testfig1).
+<!-- ```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'} -->
+<!-- plt.plot([0, 2, 1, 4]) -->
+<!-- plt.show() -->
+<!-- ``` -->
 
-```{python testfig2, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from mibPy code'}
-plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-'])
-```
+<!-- Can cite this as Fig \@ref(fig:testfig1). -->
 
-Can cite this as Fig \@ref(fig:testfig2).
+<!-- ```{python testfig2, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from mibPy code'} -->
+<!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-']) -->
+<!-- ``` -->
 
-Can also draw a graph and save it to `img/` without showing it.
+<!-- Can cite this as Fig \@ref(fig:testfig2). -->
 
-```{python, echo='TRUE'}
-plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['r-'])
-save_img('testfig1.pdf')
-```
+<!-- Can also draw a graph and save it to `img/` without showing it. -->
+
+<!-- ```{python, echo='TRUE'} -->
+<!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['r-']) -->
+<!-- save_img('testfig1.pdf') -->
+<!-- ``` -->
 
 <!-- ...then retrieve it later as an image: -->
 

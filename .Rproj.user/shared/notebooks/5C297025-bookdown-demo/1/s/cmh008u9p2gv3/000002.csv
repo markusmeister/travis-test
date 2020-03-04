@@ -1,0 +1,11 @@
+"0","import numpy as np
+import os
+import sys
+import matplotlib
+matplotlib.rcParams['text.usetex'] = True # use Latex to draw all text
+matplotlib.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']
+import matplotlib.pyplot as plt
+curdir = os.getcwd()
+os.chdir(r.projdir)
+from mib.utils import plot, save_img # plotting routines
+os.chdir(curdir)"

@@ -263,18 +263,18 @@ print(y)
 
 You can draw plots using the **matplotlib** package in Python:
 
-```{python, echo='TRUE'}
+```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
 plt.plot([0, 2, 1, 4])
 plt.show()
 ```
 
-or using the functions in the mibPy module:
+Can cite this as Fig \@ref(fig:testfig1).
 
-```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'}
+```{python testfig2, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from mibPy code'}
 plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-'])
 ```
 
-Can cite this as Fig \@ref(fig:testfig1).
+Can cite this as Fig \@ref(fig:testfig2).
 
 Can also draw a graph and save it to `img/` without showing it.
 
@@ -285,9 +285,11 @@ save_img('testfig1.pdf')
 
 ...then retrieve it later as an image:
 
-```{r testfig2, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'}
+```{r testfig3, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'}
 knitr::include_graphics(file.path(projdir, "img/testfig1.pdf"))
 ```
+
+Can cite this as Fig \@ref(fig:testfig3).
 
 
 

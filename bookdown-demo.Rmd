@@ -18,13 +18,13 @@ description: "This is a test of running the bookdown package on Travis CI. The o
 install.packages("bookdown",repos = "http://cran.us.r-project.org")
 install.packages("reticulate",repos = "http://cran.us.r-project.org")
 install.packages("rprojroot",repos = "http://cran.us.r-project.org")
-update.packages("knitr",repos = "http://cran.us.r-project.org")
-update.packages("rmarkdown",repos = "http://cran.us.r-project.org")
+# update.packages("knitr",repos = "http://cran.us.r-project.org")
+# update.packages("rmarkdown",repos = "http://cran.us.r-project.org")
 ```
 
 ```{r}
 library(reticulate)
-use_python("/usr/local/bin/python3.8")
+# use_python("/usr/local/bin/python3.8")
 py_install("numpy")
 py_install("matplotlib")
 # knitr::knit_engines$set(python = reticulate::eng_python)

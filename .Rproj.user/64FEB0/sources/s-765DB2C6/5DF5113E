@@ -1,19 +1,19 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1583303331081.000,
+    "created" : 1583304441037.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3218072209",
-    "id" : "D457F6E",
-    "lastKnownWriteTime" : 1583303753,
-    "last_content_update" : 1583303753881,
+    "hash" : "605094410",
+    "id" : "5DF5113E",
+    "lastKnownWriteTime" : 1583306357,
+    "last_content_update" : 1583306357413,
     "path" : "~/Work/Projects/Books/Mathematics Book/travis-test/index.Rmd",
     "project_path" : "index.Rmd",
     "properties" : {
-        "cursorPosition" : "17,0",
-        "scrollLine" : "12"
+        "cursorPosition" : "21,2",
+        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [

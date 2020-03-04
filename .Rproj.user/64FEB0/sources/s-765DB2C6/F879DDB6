@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583306292247.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "858990850",
+    "id" : "F879DDB6",
+    "lastKnownWriteTime" : 1583188676,
+    "last_content_update" : 1583188676,
+    "path" : "~/Work/Projects/Books/Mathematics Book/travis-test/_build.sh",
+    "project_path" : "_build.sh",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sh"
+}

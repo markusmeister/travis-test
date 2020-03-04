@@ -85,26 +85,26 @@ plt.show()
 
 Can cite this as Fig \@ref(fig:testfig2).
 
-<!-- ```{python testfig2, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from mibPy code'} -->
-<!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-']) -->
-<!-- ``` -->
+```{python testfig3, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from mibPy code'}
+plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-'])
+```
 
-<!-- Can cite this as Fig \@ref(fig:testfig2). -->
+Can cite this as Fig \@ref(fig:testfig3).
 
-<!-- Can also draw a graph and save it to `img/` without showing it. -->
+Can also draw a graph and save it to `img/` without showing it.
 
-<!-- ```{python, echo='TRUE'} -->
-<!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['r-']) -->
-<!-- save_img('testfig1.pdf') -->
-<!-- ``` -->
+```{python, echo='TRUE'}
+plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['r-'])
+save_img('testfig1.pdf')
+```
 
-<!-- ...then retrieve it later as an image: -->
+...then retrieve it later as an image:
 
-<!-- ```{r testfig3, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'} -->
-<!-- knitr::include_graphics(file.path(projdir, "img/testfig1.pdf")) -->
-<!-- ``` -->
+```{r testfig4, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'}
+knitr::include_graphics(file.path(projdir, "img/testfig1.pdf"))
+```
 
-<!-- Can cite this as Fig \@ref(fig:testfig3). -->
+Can cite this as Fig \@ref(fig:testfig4).
 
 
 

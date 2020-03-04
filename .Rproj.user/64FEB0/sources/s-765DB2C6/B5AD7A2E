@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1445891841",
+    "hash" : "1548514504",
     "id" : "B5AD7A2E",
-    "lastKnownWriteTime" : 1583304351,
-    "last_content_update" : 1583304351665,
+    "lastKnownWriteTime" : 1583307135,
+    "last_content_update" : 1583307135545,
     "path" : "~/Work/Projects/Books/Mathematics Book/travis-test/045-python.Rmd",
     "project_path" : "045-python.Rmd",
     "properties" : {
-        "cursorPosition" : "85,39",
-        "scrollLine" : "66"
+        "cursorPosition" : "106,39",
+        "scrollLine" : "80"
     },
     "read_only" : false,
     "read_only_alternatives" : [

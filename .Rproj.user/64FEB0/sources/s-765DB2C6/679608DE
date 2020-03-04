@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583299910483.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "229496409",
+    "id" : "679608DE",
+    "lastKnownWriteTime" : 1583300024,
+    "last_content_update" : 1583300024313,
+    "path" : "~/Work/Projects/Books/Mathematics Book/travis-test/045-python.Rmd",
+    "project_path" : "045-python.Rmd",
+    "properties" : {
+        "cursorPosition" : "93,39",
+        "scrollLine" : "71"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

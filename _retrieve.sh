@@ -12,7 +12,8 @@ git config --global user.name "Markus Meister"
 git clone -b master https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git failure-output
 cd failure-output
 cp -r ../bookdown-demo.Rmd ./ # retrieve the knitted file
-git add --all *
+git add bookdown-demo.Rmd
+# git add --all *
 git commit -m"Update the book" || true
 # git push -q origin gh-pages
 git push -q origin master

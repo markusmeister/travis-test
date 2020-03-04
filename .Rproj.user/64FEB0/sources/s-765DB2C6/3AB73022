@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583300490066.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "711714691",
+    "id" : "3AB73022",
+    "lastKnownWriteTime" : 1583300455,
+    "last_content_update" : 1583300455,
+    "path" : "~/Work/Projects/Books/Mathematics Book/travis-test/bookdown-demo.Rmd",
+    "project_path" : "bookdown-demo.Rmd",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

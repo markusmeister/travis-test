@@ -1,0 +1,65 @@
+language: r
+dist: xenial
+warnings_are_errors: false
+pandoc_version: 2.0.6
+sudo: false
+cache:
+  packages: yes
+
+addons:
+  apt:
+    packages:
+      - python3-numpy
+      - python3-matplotlib
+      - dvipng
+      - texlive-latex-recommended
+      - texlive-latex-extra
+      - texlive-fonts-recommended
+      - texlive-fonts-extra
+      - texlive-math-extra
+      # - tipa
+      # - texlive-luatex
+      # - texlive-xetex
+      # - ttf-wqy-zenhei
+      # - ghostscript
+      # - cm-super
+      # - dvipng
+      # - ffmpeg
+      # - gdb
+      # - gir1.2-gtk-3.0
+      # - graphviz
+      # - inkscape
+      # - lcov
+      # - libcairo2
+      # - libcairo2-dev
+      # - libffi-dev
+      # - libgeos-dev
+      # - libgirepository1.0-dev
+      # - lmodern
+      # - fonts-freefont-otf
+      # - texlive-pictures
+      # - pkg-config
+      # - qtbase5-dev
+
+before_install:
+  - Rscript -e "update.packages(.libPaths()[1], ask = FALSE)"
+#  - tlmgr install index
+
+env:
+ global:
+   - CRAN: http://cran.rstudio.com
+
+r_packages:
+   - reticulate
+   - rprojroot
+
+before_script:
+  - chmod +x ./_build.sh
+  - chmod +x ./_deploy.sh
+
+script:
+  - ./_build.sh
+  - ./_deploy.sh
+
+after_failure:
+  - ./_retrieve.sh

@@ -24,7 +24,7 @@
 <meta name="author" content="Markus Meister" />
 
 
-<meta name="date" content="2020-03-02" />
+<meta name="date" content="2020-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -146,7 +146,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html#modify-an-r-variable"><i class="fa fa-check"></i><b>3.2</b> Modify an R variable</a></li>
 <li class="chapter" data-level="3.3" data-path="python.html"><a href="python.html#a-python-chunk"><i class="fa fa-check"></i><b>3.3</b> A Python chunk</a></li>
 <li class="chapter" data-level="3.4" data-path="python.html"><a href="python.html#modify-a-python-variable"><i class="fa fa-check"></i><b>3.4</b> Modify a Python variable</a></li>
-<li class="chapter" data-level="3.5" data-path="python.html"><a href="python.html#python-graphics"><i class="fa fa-check"></i><b>3.5</b> Python graphics</a></li>
+<li class="chapter" data-level="3.5" data-path="python.html"><a href="python.html#figures-from-r-chunks"><i class="fa fa-check"></i><b>3.5</b> Figures from R chunks</a></li>
+<li class="chapter" data-level="3.6" data-path="python.html"><a href="python.html#python-graphics"><i class="fa fa-check"></i><b>3.6</b> Python graphics</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -210,26 +211,41 @@ It is not the same <code>x</code> as the one in R.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="bu">print</span>(y)</a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
 </div>
+<div id="figures-from-r-chunks" class="section level2">
+<h2><span class="header-section-number">3.5</span> Figures from R chunks</h2>
+<div class="figure" style="text-align: center"><span id="fig:testfig3"></span>
+<img src="img/testfig1.pdf" alt="This is a figure from an image file" width="33%" />
+<p class="caption">
+Figure 3.1: This is a figure from an image file
+</p>
+</div>
+<p>Can cite this as Fig <a href="python.html#fig:testfig3">3.1</a>.</p>
+</div>
 <div id="python-graphics" class="section level2">
-<h2><span class="header-section-number">3.5</span> Python graphics</h2>
+<h2><span class="header-section-number">3.6</span> Python graphics</h2>
 <p>You can draw plots using the <strong>matplotlib</strong> package in Python:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1">plt.plot([<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>])</a>
 <a class="sourceLine" id="cb24-2" data-line-number="2">plt.show()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" /><!-- --></p>
-<p>or using the functions in the mibPy module:</p>
+<p><img src="bookdown-demo_files/figure-html/testfig1-1.png" width="33%" style="display: block; margin: auto;" /></p>
 <!-- ```{python testfig1, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from Python code'} -->
-<!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-']) -->
+<!-- plt.plot([0, 2, 1, 4]) -->
+<!-- plt.show() -->
 <!-- ``` -->
 <!-- Can cite this as Fig \@ref(fig:testfig1). -->
+<!-- ```{python testfig2, echo='TRUE', out.width='33%', fig.align='center', fig.cap = 'This is a live figure from mibPy code'} -->
+<!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['g-']) -->
+<!-- ``` -->
+<!-- Can cite this as Fig \@ref(fig:testfig2). -->
 <!-- Can also draw a graph and save it to `img/` without showing it. -->
 <!-- ```{python, echo='TRUE'} -->
 <!-- plot([0, 2, 1, 4],xlabel='xaxis',ylabel='yaxis',fmts=['r-']) -->
 <!-- save_img('testfig1.pdf') -->
 <!-- ``` -->
 <!-- ...then retrieve it later as an image: -->
-<!-- ```{r testfig2, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'} -->
+<!-- ```{r testfig3, echo = FALSE, out.width='33%', fig.align='center', fig.cap = 'This is a figure from an image file'} -->
 <!-- knitr::include_graphics(file.path(projdir, "img/testfig1.pdf")) -->
 <!-- ``` -->
+<!-- Can cite this as Fig \@ref(fig:testfig3). -->
 
 </div>
 </div>

@@ -35,4 +35,7 @@ script:
   - ./_build.sh
   - ./_deploy.sh
 
+after_failure:
+  - ./_retrieve.sh
+
 

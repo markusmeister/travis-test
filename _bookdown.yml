@@ -11,7 +11,6 @@ output:
 
 rmd_files:
 - index.Rmd # includes the introduction
-# - 041-figures.Rmd
-- 042-equations.Rmd
-- 045-python.Rmd
+- 01-equations.Rmd
+- 02-python.Rmd
 

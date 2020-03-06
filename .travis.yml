@@ -19,9 +19,7 @@ addons:
       # - dvipng
 
 before_install:
-
-install:
-  R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz', repos=NULL, type='source')"
+  - R -q -e 'if (packageVersion("knitr")>1.26) install.packages("http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz", repos=NULL, type="source")'
 
 env:
  global:
@@ -29,7 +27,8 @@ env:
 
 r_packages:
    - reticulate
-   - "http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz"
+   - bookdown
+   - tinytex
 
 before_script:
   - chmod +x ./_build.sh

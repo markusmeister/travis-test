@@ -4,3 +4,7 @@ Title: Does not matter.
 Version: 0.0.1
 Imports: bookdown
 Remotes: rstudio/bookdown
+License: placeholder
+Description: placeholder
+Author: Markus Meister
+Maintainer: Markus Meister <meister4@mac.com>

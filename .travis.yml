@@ -10,31 +10,34 @@ addons:
     packages:
       - python3-numpy
       - python3-matplotlib
-      - texlive-latex-recommended
-      - texlive-latex-extra
-      - texlive-fonts-recommended
-      - texlive-fonts-extra
-      - texlive-fonts-recommended
+      # - texlive-latex-recommended
+      # - texlive-latex-extra
+      # - texlive-fonts-recommended
+      # - texlive-fonts-extra
+      # - texlive-fonts-recommended
       # - tipa
       # - dvipng
 
 before_install:
+  - Rscript -e 'if (packageVersion("knitr")>1.26) install.packages("http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz", repos=NULL, type="source")'
+  - tlmgr update --all --self
+  - tlmgr conf texmf TEXMFHOME $(Rscript -e "cat(file.path(R.home('share'), 'texmf'))")
 
 env:
  global:
    - CRAN: http://cran.rstudio.com
 
 r_packages:
-   - reticulate
-   - bookdown
-   - tinytex
+  - reticulate
+  - bookdown
+  - tinytex
 
 before_script:
   - chmod +x ./_build.sh
   - chmod +x ./_deploy.sh
 
 script:
-  - R -q -e 'if (packageVersion("knitr")>1.26) install.packages("http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz", repos=NULL, type="source")'
+#  - R -q -e 'if (packageVersion("knitr")>1.26) install.packages("http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz", repos=NULL, type="source")'
   - ./_build.sh
   - ./_deploy.sh
 

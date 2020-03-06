@@ -147,6 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="python.html"><a href="python.html#a-python-chunk"><i class="fa fa-check"></i><b>3.3</b> A Python chunk</a></li>
 <li class="chapter" data-level="3.4" data-path="python.html"><a href="python.html#modify-a-python-variable"><i class="fa fa-check"></i><b>3.4</b> Modify a Python variable</a></li>
 <li class="chapter" data-level="3.5" data-path="python.html"><a href="python.html#python-graphics"><i class="fa fa-check"></i><b>3.5</b> Python graphics</a></li>
+<li class="chapter" data-level="3.6" data-path="python.html"><a href="python.html#using-the-mib-plotting-untility"><i class="fa fa-check"></i><b>3.6</b> Using the mib plotting untility</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -175,10 +176,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="prerequisites" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># connect to python</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(reticulate)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">matplotlib &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;matplotlib&quot;</span>)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">matplotlib<span class="op">$</span><span class="kw">use</span>(<span class="st">&quot;Agg&quot;</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>) <span class="co"># backend that doesn&#39;t expect a display</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">projdir =<span class="st"> </span>rprojroot<span class="op">::</span><span class="kw">find_rstudio_root_file</span>() <span class="co"># project directory</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">include_svg =<span class="st"> </span><span class="cf">function</span>(path) { <span class="co"># used to convert svg to pdf</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="cf">if</span> (knitr<span class="op">::</span><span class="kw">is_latex_output</span>()) {</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    output =<span class="st"> </span>xfun<span class="op">::</span><span class="kw">with_ext</span>(path, <span class="st">&#39;pdf&#39;</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="co"># you can compare the timestamp of pdf against svg to avoid conversion if necessary</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="kw">system2</span>(<span class="st">&#39;rsvg-convert&#39;</span>, <span class="kw">c</span>(<span class="st">&#39;-f&#39;</span>, <span class="st">&#39;pdf&#39;</span>, <span class="st">&#39;-a&#39;</span>, <span class="st">&#39;-o&#39;</span>, <span class="kw">shQuote</span>(<span class="kw">c</span>(output, path))))</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    output =<span class="st"> </span>path</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  }</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  knitr<span class="op">::</span><span class="kw">include_graphics</span>(output)</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># connect to python</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(reticulate)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">matplotlib &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;matplotlib&quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">matplotlib<span class="op">$</span><span class="kw">use</span>(<span class="st">&quot;Agg&quot;</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>) <span class="co"># backend that doesn&#39;t expect a display</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="im">import</span> sys</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="im">import</span> matplotlib</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">matplotlib.rcParams[<span class="st">&#39;text.usetex&#39;</span>] <span class="op">=</span> <span class="va">True</span> <span class="co"># use Latex to draw all text</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">matplotlib.rcParams[<span class="st">&#39;text.latex.preamble&#39;</span>] <span class="op">=</span> [<span class="vs">r&#39;\usepackage</span><span class="sc">{amsmath}</span><span class="vs">&#39;</span>]</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">curdir <span class="op">=</span> os.getcwd()</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">os.chdir(r.projdir)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="im">from</span> mib.utils <span class="im">import</span> plot, save_img <span class="co"># plotting routines</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">os.chdir(curdir)</a></code></pre></div>
 
 </div>
             </section>

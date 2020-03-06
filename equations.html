@@ -147,6 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="python.html"><a href="python.html#a-python-chunk"><i class="fa fa-check"></i><b>3.3</b> A Python chunk</a></li>
 <li class="chapter" data-level="3.4" data-path="python.html"><a href="python.html#modify-a-python-variable"><i class="fa fa-check"></i><b>3.4</b> Modify a Python variable</a></li>
 <li class="chapter" data-level="3.5" data-path="python.html"><a href="python.html#python-graphics"><i class="fa fa-check"></i><b>3.5</b> Python graphics</a></li>
+<li class="chapter" data-level="3.6" data-path="python.html"><a href="python.html#using-the-mib-plotting-untility"><i class="fa fa-check"></i><b>3.6</b> Using the mib plotting untility</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -188,17 +189,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To label an equation with <code>name</code> use the format <code>(\#eq:name)</code>.
 To cite that equation use the format <code>\@ref(eq:name)</code></p>
 <p>The equation label has to appear after the body of the equation code, like this:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="ss">  </span><span class="sc">\tilde</span><span class="ss"> h(</span><span class="sc">\omega</span><span class="ss">) = </span><span class="sc">\int</span><span class="ss">_{-</span><span class="sc">\infty</span><span class="ss">}^{</span><span class="sc">\infty</span><span class="ss">}</span><span class="sc">\,</span><span class="ss">e^{i</span><span class="sc">\omega</span><span class="ss"> t&#39;} h(t&#39;) </span><span class="sc">\,</span><span class="ss"> dt&#39;</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:binom)</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">\end</span>{<span class="ex">equation</span>} </a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="ss">  </span><span class="sc">\tilde</span><span class="ss"> h(</span><span class="sc">\omega</span><span class="ss">) = </span><span class="sc">\int</span><span class="ss">_{-</span><span class="sc">\infty</span><span class="ss">}^{</span><span class="sc">\infty</span><span class="ss">}</span><span class="sc">\,</span><span class="ss">e^{i</span><span class="sc">\omega</span><span class="ss"> t&#39;} h(t&#39;) </span><span class="sc">\,</span><span class="ss"> dt&#39;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:binom)</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">\end</span>{<span class="ex">equation</span>} </a></code></pre></div>
 <span class="math display" id="eq:binom">\[\begin{equation}
   \tilde h(\omega) = \int_{-\infty}^{\infty}\,e^{i\omega t&#39;} h(t&#39;) \, dt&#39;
   \tag{2.1}
 \end{equation}\]</span>
-<div class="sourceCode" id="cb5"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="ss">f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">)=</span><span class="sc">\binom</span><span class="ss">{n}{k}p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k} (</span><span class="sc">\#</span><span class="ss">eq:binom2)</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">\end</span>{<span class="ex">equation</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">\begin</span>{<span class="ex">equation</span>}</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="ss">f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">)=</span><span class="sc">\binom</span><span class="ss">{n}{k}p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k} (</span><span class="sc">\#</span><span class="ss">eq:binom2)</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">\end</span>{<span class="ex">equation</span>}</a></code></pre></div>
 <span class="math display" id="eq:binom2">\[\begin{equation}
 f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \tag{2.2}
 \end{equation}\]</span>
@@ -249,7 +250,7 @@ f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \tag{2.2}
 \end{equation}\]</span>
 <p>…then with multiple numbers</p>
 <span class="math display" id="eq:var-d" id="eq:var-c" id="eq:var-b" id="eq:var-a">\[\begin{align}
-\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y) \notag \\
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y) \nonumber \\
  &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\tag{2.5}\\ 
  &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\tag{2.6}\\ 
  &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\tag{2.7}\\ 

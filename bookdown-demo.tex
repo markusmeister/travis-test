@@ -29,8 +29,8 @@
 }
 \usepackage{hyperref}
 \hypersetup{
-            pdftitle={A Minimal Book Example},
-            pdfauthor={Yihui Xie},
+            pdftitle={A Test of integrating bookdown with Travis CI},
+            pdfauthor={Markus Meister},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -116,9 +116,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{A Minimal Book Example}
-\author{Yihui Xie}
-\date{2020-03-04}
+\title{A Test of integrating bookdown with Travis CI}
+\author{Markus Meister}
+\date{2020-03-06}
 
 \begin{document}
 \maketitle
@@ -130,21 +130,14 @@
 \hypertarget{prerequisites}{%
 \chapter{Prerequisites}\label{prerequisites}}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
-
-The \textbf{bookdown} package can be installed from CRAN or Github:
-
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\CommentTok{# connect to python}
+\KeywordTok{library}\NormalTok{(reticulate)}
+\NormalTok{matplotlib <-}\StringTok{ }\KeywordTok{import}\NormalTok{(}\StringTok{"matplotlib"}\NormalTok{)}
+\NormalTok{matplotlib}\OperatorTok{$}\KeywordTok{use}\NormalTok{(}\StringTok{"Agg"}\NormalTok{, }\DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{) }\CommentTok{# backend that doesn't expect a display}
 \end{Highlighting}
 \end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
 
 \hypertarget{equations}{%
 \chapter{Equations}\label{equations}}
@@ -296,14 +289,6 @@ I wrote some grep routines that produce automatic equation labels, for example i
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(reticulate)}
-\NormalTok{matplotlib <-}\StringTok{ }\KeywordTok{import}\NormalTok{(}\StringTok{"matplotlib"}\NormalTok{)}
-\NormalTok{matplotlib}\OperatorTok{$}\KeywordTok{use}\NormalTok{(}\StringTok{"Agg"}\NormalTok{, }\DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{x =}\StringTok{ }\DecValTok{42}
 \KeywordTok{print}\NormalTok{(x)}
 \end{Highlighting}
@@ -419,8 +404,61 @@ You can draw plots using the \textbf{matplotlib} package in Python.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/unnamed-chunk-9-1.pdf}
 
-\bibliography{book.bib,packages.bib}
+But doing the same with a figure caption fails to build on Travis CI (as of 3/4/2020):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{python testfig1, echo=FALSE, out.width='33%', fig.align='center', fig.cap = 'A figure from Python code'\}}
+\NormalTok{plt.plot([0, 2, 1, 4])}
+\NormalTok{plt.show()}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.33\linewidth]{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/testfig1-1} 
+
+}
+
+\caption{A figure from Python code}\label{fig:testfig1}
+\end{figure}
+
+The error log from Travis CI is
+
+\begin{verbatim}
+label: testfig1 (with options) 
+1321List of 5
+1322 $ echo     : chr "FALSE"
+1323 $ out.width: chr "33%"
+1324 $ fig.align: chr "center"
+1325 $ fig.cap  : chr "A figure from Python code"
+1326 $ engine   : chr "python"
+1327
+1328Quitting from lines 260-262 (bookdown-demo.Rmd) 
+1329Error in if (options$fig.num > 1L && options$fig.show == "asis") options$fig.cur : 
+1330  missing value where TRUE/FALSE needed
+\end{verbatim}
+
+Using an R chunk to insert a figure with caption works fine:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{```\{r testfig2, echo=FALSE, out.width='33%', fig.align='center', fig.cap='A figure from a PDF file.'\}}
+\NormalTok{knitr::include_graphics('img/testfig1.pdf')}
+\NormalTok{```}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.33\linewidth]{img/testfig1} 
+
+}
+
+\caption{A figure from a PDF file.}\label{fig:testfig2}
+\end{figure}
 
 \end{document}

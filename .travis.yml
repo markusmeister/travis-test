@@ -20,12 +20,16 @@ addons:
 
 before_install:
 
+install:
+  R -e "install.packages('http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz', repos=NULL, type='source')"
+
 env:
  global:
    - CRAN: http://cran.rstudio.com
 
 r_packages:
    - reticulate
+   - "http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz"
 
 before_script:
   - chmod +x ./_build.sh

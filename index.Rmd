@@ -34,12 +34,18 @@ tinytex::install_tinytex()
 # to uninstall TinyTeX, run tinytex::uninstall_tinytex() 
 ```
 
-
-```{r include=FALSE}
+```{r eval=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+```
+
+```{r}
+if (packageVersion("knitr")>1.26) {
+  install.packages("http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz", repos=NULL, type="source")
+  sessionInfo()
+}
 ```
 
 ```{r}

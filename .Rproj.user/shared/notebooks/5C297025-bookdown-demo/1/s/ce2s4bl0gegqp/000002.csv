@@ -1,3 +1,0 @@
-"0","library(reticulate)"
-"0","matplotlib <- import(""matplotlib"")"
-"0","matplotlib$use(""Agg"", force = TRUE)"

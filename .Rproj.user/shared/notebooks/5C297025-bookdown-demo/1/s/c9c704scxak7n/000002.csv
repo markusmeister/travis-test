@@ -1,7 +1,0 @@
-"0","x = 42"
-"2","The working directory was changed to /Users/markus/Work/Projects/Books/Mathematics Book/travis-test inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks."
-"0","print(x)"
-"1","[1]"
-"1"," 42"
-"1","
-"

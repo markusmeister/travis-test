@@ -132,38 +132,6 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{'tinytex'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Installing package into '/home/travis/R/Library'
-## (as 'lib' is unspecified)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tinytex}\OperatorTok{::}\KeywordTok{install_tinytex}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: Detected an existing tlmgr at /home/travis/bin/tlmgr. It seems TeX
-## Live has been installed (check tinytex::tinytex_root()). You are recommended
-## to uninstall it, although TinyTeX should work well alongside another LaTeX
-## distribution if a LaTeX document is compiled through tinytex::latexmk().
-\end{verbatim}
-
-\begin{verbatim}
-## TinyTeX installed to /home/travis/.TinyTeX
-\end{verbatim}
-
-\begin{verbatim}
-## You may have to restart your system after installing TinyTeX to make sure ~/bin appears in your PATH variable (https://github.com/yihui/tinytex/issues/16).
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{projdir =}\StringTok{ }\NormalTok{rprojroot}\OperatorTok{::}\KeywordTok{find_rstudio_root_file}\NormalTok{() }\CommentTok{# project directory}
 
 \NormalTok{include_svg =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path) \{ }\CommentTok{# used to convert svg to pdf}
@@ -469,7 +437,7 @@ You can draw plots using the \textbf{matplotlib} package in Python.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/unnamed-chunk-11-1.pdf}
 
 and adding a figure caption
 

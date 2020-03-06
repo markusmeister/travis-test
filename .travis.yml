@@ -15,7 +15,7 @@ addons:
       - texlive-fonts-recommended
       - texlive-fonts-extra
       # - tipa
-      # - dvipng
+      - dvipng
 
 before_install:
   - tlmgr update --all --self

@@ -108,12 +108,13 @@ Here is a long equation stretching over several lines, first with a single numbe
 ...then with multiple numbers
 
 \begin{align}
-\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \notag \\
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \nonumber \\
  & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'(\#eq:var-a)\\ 
  & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}(\#eq:var-b)\\ 
  & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}(\#eq:var-c)\\ 
  & =(X'X)^{-1}\sigma^{2} (\#eq:var-d)
 \end{align}
+
 
 I wrote some grep routines that produce automatic equation labels, for example in the study guide which contains several hundred equations. Every one of those has a label, even though we rarely cite those labels.
 

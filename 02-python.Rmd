@@ -71,7 +71,7 @@ plt.plot([0, 2, 1, 4])
 plt.show()
 ```
 
-But doing the same with a figure caption fails to build on Travis CI (as of 3/4/2020):
+and adding a figure caption
 
 ````markdown
 `r ''````{python testfig1, echo=FALSE, out.width='33%', fig.align='center', fig.cap = 'A figure from Python code'}
@@ -85,22 +85,9 @@ plt.plot([0, 2, 1, 4])
 plt.show()
 ```
 
-The error log from Travis CI is
-```
-label: testfig1 (with options) 
-1321List of 5
-1322 $ echo     : chr "FALSE"
-1323 $ out.width: chr "33%"
-1324 $ fig.align: chr "center"
-1325 $ fig.cap  : chr "A figure from Python code"
-1326 $ engine   : chr "python"
-1327
-1328Quitting from lines 260-262 (bookdown-demo.Rmd) 
-1329Error in if (options$fig.num > 1L && options$fig.show == "asis") options$fig.cur : 
-1330  missing value where TRUE/FALSE needed
-```
+Note this last chunk fails when knitr version is knitr_1.28, but works with knitr_1.26.
 
-Using an R chunk to insert a figure with caption works fine:
+Using an R chunk to insert a figure with caption:
 
 ````markdown
 `r ''````{r testfig2, echo=FALSE, out.width='33%', fig.align='center', fig.cap='A figure from a PDF file.'}
@@ -112,3 +99,19 @@ knitr::include_graphics('img/testfig1.pdf')
 knitr::include_graphics('img/testfig1.pdf')
 ```
 
+Can cite both Figs. \@ref(fig:testfig1) and \@ref(fig:testfig2).
+
+## Using the mib plotting untility
+
+```{python plotP1, echo = TRUE, out.width='66%', fig.align='center', fig.cap ='A plot using mib/utils.py'}
+x = np.arange(-10,10,.01)
+t = [0.1,0.3,1,3,10]
+y = [np.exp(-x**2/(4*ti))/np.sqrt(4*np.pi*ti) for ti in t]
+plot (x,y,fmts=['g-', 'm--', 'b-.', 'r:', 'k-'], linewidth=1,
+    xlabel='Distance',ylabel='Concentration',yzero=True,
+    legend=['t = 0.1','0.3','1','3','10'],xticks=[-10,-5,-1,0,1,5,10])
+save_img('plotP1.pdf')
+plt.show()
+```
+
+See Figure \@ref(fig:plotP1).

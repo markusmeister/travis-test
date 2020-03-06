@@ -11,10 +11,10 @@ addons:
       - python3-numpy
       - python3-matplotlib
       - dvipng
-      # - texlive-latex-recommended
-      # - texlive-latex-extra
-      # - texlive-fonts-recommended
-      # - texlive-fonts-extra
+      - texlive-latex-recommended
+      - texlive-latex-extra
+      - texlive-fonts-recommended
+      - texlive-fonts-extra
       # - tipa
 
 before_install:

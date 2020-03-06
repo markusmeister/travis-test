@@ -10,13 +10,12 @@ addons:
     packages:
       - python3-numpy
       - python3-matplotlib
-      - xzdec
-      - texlive-latex-recommended
-      - texlive-latex-extra
-      - texlive-fonts-recommended
-      - texlive-fonts-extra
-      # - tipa
       - dvipng
+      # - texlive-latex-recommended
+      # - texlive-latex-extra
+      # - texlive-fonts-recommended
+      # - texlive-fonts-extra
+      # - tipa
 
 before_install:
   - tlmgr update --all --self
@@ -38,6 +37,7 @@ before_script:
 
 script:
   - R -q -e 'if (packageVersion("knitr")>1.26) install.packages("http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz", repos=NULL, type="source")'
+  - R -q -e 'tinytex::install_tinytex()'
   - ./_build.sh
   - ./_deploy.sh
 

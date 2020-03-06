@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Test of integrating bookdown with Travis CI</title>
   <meta name="description" content="This is a test of various bookdown functions implemented on Travis CI. The content is largely based on Yihui Xie’s bookdown projects, see https://bookdown.org/yihui/bookdown/github.html and https://github.com/rstudio/bookdown-demo." />
-  <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Test of integrating bookdown with Travis CI" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Markus Meister" />
 
 
-<meta name="date" content="2020-03-04" />
+<meta name="date" content="2020-03-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -171,7 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">A Test of integrating bookdown with Travis CI</h1>
 <p class="author"><em>Markus Meister</em></p>
-<p class="date"><em>2020-03-04</em></p>
+<p class="date"><em>2020-03-06</em></p>
 </div>
 <div id="prerequisites" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
@@ -185,10 +185,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># to uninstall TinyTeX, run tinytex::uninstall_tinytex() </span></a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># connect to python</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(reticulate)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">matplotlib &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;matplotlib&quot;</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">matplotlib<span class="op">$</span><span class="kw">use</span>(<span class="st">&quot;Agg&quot;</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>) <span class="co"># backend that doesn&#39;t expect a display</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># automatically create a bib database for R packages</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="kw">.packages</span>(), <span class="st">&#39;bookdown&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;rmarkdown&#39;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">), <span class="st">&#39;packages.bib&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="cf">if</span> (<span class="kw">packageVersion</span>(<span class="st">&quot;knitr&quot;</span>)<span class="op">&gt;</span><span class="fl">1.26</span>) {</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="kw">install.packages</span>(<span class="st">&quot;http://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.26.tar.gz&quot;</span>, <span class="dt">repos=</span><span class="ot">NULL</span>, <span class="dt">type=</span><span class="st">&quot;source&quot;</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="kw">sessionInfo</span>()</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># connect to python</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">library</span>(reticulate)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">matplotlib &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;matplotlib&quot;</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">matplotlib<span class="op">$</span><span class="kw">use</span>(<span class="st">&quot;Agg&quot;</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>) <span class="co"># backend that doesn&#39;t expect a display</span></a></code></pre></div>
 
 </div>
             </section>

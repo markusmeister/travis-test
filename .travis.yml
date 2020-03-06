@@ -10,6 +10,7 @@ addons:
     packages:
       - python3-numpy
       - python3-matplotlib
+      - xzdec
       - texlive-latex-recommended
       - texlive-latex-extra
       - texlive-fonts-recommended

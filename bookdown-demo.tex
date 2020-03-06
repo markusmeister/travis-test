@@ -132,10 +132,75 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{'tinytex'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Installing package into '/home/travis/R/Library'
+## (as 'lib' is unspecified)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tinytex}\OperatorTok{::}\KeywordTok{install_tinytex}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Detected an existing tlmgr at /home/travis/bin/tlmgr. It seems TeX
+## Live has been installed (check tinytex::tinytex_root()). You are recommended
+## to uninstall it, although TinyTeX should work well alongside another LaTeX
+## distribution if a LaTeX document is compiled through tinytex::latexmk().
+\end{verbatim}
+
+\begin{verbatim}
+## TinyTeX installed to /home/travis/.TinyTeX
+\end{verbatim}
+
+\begin{verbatim}
+## You may have to restart your system after installing TinyTeX to make sure ~/bin appears in your PATH variable (https://github.com/yihui/tinytex/issues/16).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{projdir =}\StringTok{ }\NormalTok{rprojroot}\OperatorTok{::}\KeywordTok{find_rstudio_root_file}\NormalTok{() }\CommentTok{# project directory}
+
+\NormalTok{include_svg =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path) \{ }\CommentTok{# used to convert svg to pdf}
+  \ControlFlowTok{if}\NormalTok{ (knitr}\OperatorTok{::}\KeywordTok{is_latex_output}\NormalTok{()) \{}
+\NormalTok{    output =}\StringTok{ }\NormalTok{xfun}\OperatorTok{::}\KeywordTok{with_ext}\NormalTok{(path, }\StringTok{'pdf'}\NormalTok{)}
+    \CommentTok{# you can compare the timestamp of pdf against svg to avoid conversion if necessary}
+    \KeywordTok{system2}\NormalTok{(}\StringTok{'rsvg-convert'}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{'-f'}\NormalTok{, }\StringTok{'pdf'}\NormalTok{, }\StringTok{'-a'}\NormalTok{, }\StringTok{'-o'}\NormalTok{, }\KeywordTok{shQuote}\NormalTok{(}\KeywordTok{c}\NormalTok{(output, path))))}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    output =}\StringTok{ }\NormalTok{path}
+\NormalTok{  \}}
+\NormalTok{  knitr}\OperatorTok{::}\KeywordTok{include_graphics}\NormalTok{(output)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# connect to python}
 \KeywordTok{library}\NormalTok{(reticulate)}
 \NormalTok{matplotlib <-}\StringTok{ }\KeywordTok{import}\NormalTok{(}\StringTok{"matplotlib"}\NormalTok{)}
 \NormalTok{matplotlib}\OperatorTok{$}\KeywordTok{use}\NormalTok{(}\StringTok{"Agg"}\NormalTok{, }\DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{) }\CommentTok{# backend that doesn't expect a display}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ os}
+\ImportTok{import}\NormalTok{ sys}
+\ImportTok{import}\NormalTok{ matplotlib}
+\NormalTok{matplotlib.rcParams[}\StringTok{'text.usetex'}\NormalTok{] }\OperatorTok{=} \VariableTok{True} \CommentTok{# use Latex to draw all text}
+\NormalTok{matplotlib.rcParams[}\StringTok{'text.latex.preamble'}\NormalTok{] }\OperatorTok{=}\NormalTok{ [}\VerbatimStringTok{r'\textbackslash{}usepackage}\SpecialCharTok{\{amsmath\}}\VerbatimStringTok{'}\NormalTok{]}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\NormalTok{curdir }\OperatorTok{=}\NormalTok{ os.getcwd()}
+\NormalTok{os.chdir(r.projdir)}
+\ImportTok{from}\NormalTok{ mib.utils }\ImportTok{import}\NormalTok{ plot, save_img }\CommentTok{# plotting routines}
+\NormalTok{os.chdir(curdir)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -272,7 +337,7 @@ Here is a long equation stretching over several lines, first with a single numbe
 \ldots{}then with multiple numbers
 
 \begin{align}
-\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \notag \\
+\mathrm{Var}(\hat{\beta}) & =\mathrm{Var}((X'X)^{-1}X'y) \nonumber \\
  & =(X'X)^{-1}X'\mathrm{Var}(y)((X'X)^{-1}X')'\label{eq:var-a}\\ 
  & =(X'X)^{-1}X'\mathrm{Var}(y)X(X'X)^{-1}\label{eq:var-b}\\ 
  & =(X'X)^{-1}X'\sigma^{2}IX(X'X)^{-1}\label{eq:var-c}\\ 
@@ -404,9 +469,9 @@ You can draw plots using the \textbf{matplotlib} package in Python.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/unnamed-chunk-12-1.pdf}
 
-But doing the same with a figure caption fails to build on Travis CI (as of 3/4/2020):
+and adding a figure caption
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -426,23 +491,9 @@ But doing the same with a figure caption fails to build on Travis CI (as of 3/4/
 \caption{A figure from Python code}\label{fig:testfig1}
 \end{figure}
 
-The error log from Travis CI is
+Note this last chunk fails when knitr version is knitr\_1.28, but works with knitr\_1.26.
 
-\begin{verbatim}
-label: testfig1 (with options) 
-1321List of 5
-1322 $ echo     : chr "FALSE"
-1323 $ out.width: chr "33%"
-1324 $ fig.align: chr "center"
-1325 $ fig.cap  : chr "A figure from Python code"
-1326 $ engine   : chr "python"
-1327
-1328Quitting from lines 260-262 (bookdown-demo.Rmd) 
-1329Error in if (options$fig.num > 1L && options$fig.show == "asis") options$fig.cur : 
-1330  missing value where TRUE/FALSE needed
-\end{verbatim}
-
-Using an R chunk to insert a figure with caption works fine:
+Using an R chunk to insert a figure with caption:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -460,6 +511,35 @@ Using an R chunk to insert a figure with caption works fine:
 
 \caption{A figure from a PDF file.}\label{fig:testfig2}
 \end{figure}
+
+Can cite both Figs. \ref{fig:testfig1} and \ref{fig:testfig2}.
+
+\hypertarget{using-the-mib-plotting-untility}{%
+\section{Using the mib plotting untility}\label{using-the-mib-plotting-untility}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.arange(}\OperatorTok{-}\DecValTok{10}\NormalTok{,}\DecValTok{10}\NormalTok{,.}\DecValTok{01}\NormalTok{)}
+\NormalTok{t }\OperatorTok{=}\NormalTok{ [}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{10}\NormalTok{]}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ [np.exp(}\OperatorTok{-}\NormalTok{x}\OperatorTok{**}\DecValTok{2}\OperatorTok{/}\NormalTok{(}\DecValTok{4}\OperatorTok{*}\NormalTok{ti))}\OperatorTok{/}\NormalTok{np.sqrt(}\DecValTok{4}\OperatorTok{*}\NormalTok{np.pi}\OperatorTok{*}\NormalTok{ti) }\ControlFlowTok{for}\NormalTok{ ti }\KeywordTok{in}\NormalTok{ t]}
+\NormalTok{plot (x,y,fmts}\OperatorTok{=}\NormalTok{[}\StringTok{'g-'}\NormalTok{, }\StringTok{'m--'}\NormalTok{, }\StringTok{'b-.'}\NormalTok{, }\StringTok{'r:'}\NormalTok{, }\StringTok{'k-'}\NormalTok{], linewidth}\OperatorTok{=}\DecValTok{1}\NormalTok{,}
+\NormalTok{    xlabel}\OperatorTok{=}\StringTok{'Distance'}\NormalTok{,ylabel}\OperatorTok{=}\StringTok{'Concentration'}\NormalTok{,yzero}\OperatorTok{=}\VariableTok{True}\NormalTok{,}
+\NormalTok{    legend}\OperatorTok{=}\NormalTok{[}\StringTok{'t = 0.1'}\NormalTok{,}\StringTok{'0.3'}\NormalTok{,}\StringTok{'1'}\NormalTok{,}\StringTok{'3'}\NormalTok{,}\StringTok{'10'}\NormalTok{],xticks}\OperatorTok{=}\NormalTok{[}\OperatorTok{-}\DecValTok{10}\NormalTok{,}\OperatorTok{-}\DecValTok{5}\NormalTok{,}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{10}\NormalTok{])}
+\NormalTok{save_img(}\StringTok{'plotP1.pdf'}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.66\linewidth]{/home/travis/build/markusmeister/travis-test/bookdown-demo_files/figure-latex/plotP1-1} 
+
+}
+
+\caption{A plot using mib/utils.py}\label{fig:plotP1}
+\end{figure}
+
+See Figure \ref{fig:plotP1}.
 
 \bibliography{book.bib,packages.bib}
 
